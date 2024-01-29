@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import Papa from "papaparse";
+
 import LoaderComponent from "../LoaderComponent/LoaderComponent";
 import UploadsTableComponent from "../UploadsTableComponent/UploadsTableComponent";
 import SidebarComponent from "../SidebarComponent/SidebarComponent";
@@ -13,7 +15,10 @@ import { ReactComponent as BaseIcon } from "../../assets/icons/base.svg";
 import styles from "./UploadComponent.module.css";
 
 const UploadComponent = ({ onLogout }) => {
-  const [selectedFile, setSelectedFile] = useState();
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [tableHeaders, setTableHeaders] = useState([]);
+  const [selectedFileContent, setSelectedFileContent] = useState([]);
+  const [showTable, setShowTable] = useState(false);
   const [isFilePicked, setIsFilePicked] = useState(false);
   const [loading, setLoading] = useState(false);
   const [isSidebar, setIsSidebar] = useState(false);
@@ -21,24 +26,71 @@ const UploadComponent = ({ onLogout }) => {
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
-    setIsFilePicked(true);
-    setLoading((prevState) => !prevState);
+    const file = event.target.files[0];
+
+    Papa.parse(file, {
+      header: true,
+      skipEmptyLines: true,
+      complete: function (results) {
+        const headers = Object.keys(results.data[0]);
+        setTableHeaders(headers);
+        setSelectedFileContent(
+          results.data.map((obj) => {
+            return {
+              id: obj.id,
+              links: obj.links,
+              prefix: obj.prefix,
+              tags: obj["select tags"].split(", "),
+              selectedTags:
+                obj["selected tags"].split(", ")[0] === ""
+                  ? []
+                  : obj["selected tags"].split(", "),
+            };
+          })
+        );
+        setIsFilePicked(true);
+        setLoading((prevState) => !prevState);
+      },
+    });
   };
 
   const handleDragOver = (e) => {
     e.preventDefault();
   };
+
   const handleDrop = (e) => {
     e.preventDefault();
     const file = e.dataTransfer.files[0];
-    console.log(file);
     setSelectedFile(file);
-    setIsFilePicked(true);
-    setLoading((prevState) => !prevState);
+
+    Papa.parse(file, {
+      header: true,
+      skipEmptyLines: true,
+      complete: function (results) {
+        const headers = Object.keys(results.data[0]);
+        setTableHeaders(headers);
+        setSelectedFileContent(
+          results.data.map((obj) => {
+            return {
+              id: obj.id,
+              links: obj.links,
+              prefix: obj.prefix,
+              tags: obj["select tags"].split(", "),
+              selectedTags:
+                obj["selected tags"].split(", ")[0] === ""
+                  ? []
+                  : obj["selected tags"].split(", "),
+            };
+          })
+        );
+        setIsFilePicked(true);
+        setLoading((prevState) => !prevState);
+      },
+    });
   };
 
   const uploadHandler = () => {
-    console.log(selectedFile);
+    setShowTable((prevState) => !prevState);
   };
 
   const removeFileHandler = () => {
@@ -61,7 +113,7 @@ const UploadComponent = ({ onLogout }) => {
   return (
     <>
       <div className={styles.miniSidebar}>
-        <div style={{display: "flex"}}>
+        <div style={{ display: "flex" }}>
           <button
             type="button"
             className={styles.miniSidebarHandlerButton}
@@ -77,8 +129,8 @@ const UploadComponent = ({ onLogout }) => {
               <path
                 d="M1 1H17M1 13H17M1 7H17"
                 stroke="#231F20"
-                stroke-width="1.5"
-                stroke-linecap="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
               />
             </svg>
           </button>
@@ -169,10 +221,15 @@ const UploadComponent = ({ onLogout }) => {
             </div>
           </div>
         </div>
-        <div className={styles.uploads}>
-          <p className={styles.tableHeader}>Uploads</p>
-          <UploadsTableComponent />
-        </div>
+        {showTable && (
+          <div className={styles.uploads}>
+            <p className={styles.tableHeader}>Uploads</p>
+            <UploadsTableComponent
+              data={selectedFileContent}
+              headers={tableHeaders}
+            />
+          </div>
+        )}
       </div>
     </>
   );
