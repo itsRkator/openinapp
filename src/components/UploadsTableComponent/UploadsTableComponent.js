@@ -1,38 +1,16 @@
-// TableComponent.jsx
-
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import {ReactComponent as RemoveIcon } from '../../assets/icons/removeIcon.svg';
 
 import styles from "./UploadsTableComponent.module.css";
 
-const DummyData = [
-  {
-    siNo: 1,
-    links: "www.google.com",
-    prefix: "prefixsample",
-    tags: ["Tag 1", "Tag 2", "Tag 3", "Tag 4"],
-    selectedTags: ["Tag 1", "Tag 2"],
-  },
-  {
-    siNo: 2,
-    links: "www.google.com",
-    prefix: "prefixsample",
-    tags: ["Tag 1", "Tag 2", "Tag 3", "Tag 4"],
-    selectedTags: ["Tag 1", "Tag 2"],
-  },
-  {
-    siNo: 3,
-    links: "www.google.com",
-    prefix: "prefixsample",
-    tags: ["Tag 1", "Tag 2", "Tag 3", "Tag 4"],
-    selectedTags: ["Tag 1", "Tag 4"],
-  },
-  // Add more dummy data as needed
-];
 
-const TableComponent = () => {
-  const [tableData, setTableData] = useState(DummyData);
+const TableComponent = ({data, headers}) => {
+
+  const [tableData, setTableData] = useState(data);
+  const [tableHeaders, setTableHeaders] = useState(headers);
+
+  console.log(headers, data);
 
   const handleTagSelection = (index, selectedTag) => {
     const updatedData = [...tableData];
@@ -49,21 +27,25 @@ const TableComponent = () => {
     setTableData(updatedData);
   };
 
+  useEffect(() => {
+    setTableData(data);
+    setTableHeaders(headers);
+
+  }, [data, headers]);
+
   return (
     <div className={styles.container}>
       <table className={styles.table}>
       <thead>
         <tr>
-          <th>Si No.</th>
-          <th>Links</th>
-          <th>Prefix</th>
-          <th>Add Tags</th>
-          <th>Selected Tags</th>
+          {tableHeaders.map((header, index) => (
+            <th key={index.toString() + Math.random().toString()}>{header.toUpperCase()}</th>
+          ))}
         </tr>
       </thead>
       <tbody>
         {tableData.map((row, index) => (
-          <tr key={index.toString() + Math.random().toString()}>
+          <tr key={row.id}>
             <td>{row.siNo}</td>
             <td><a href={row.links} target="_blank" rel="noreferrer">{row.links}</a></td>
             <td>{row.prefix}</td>
