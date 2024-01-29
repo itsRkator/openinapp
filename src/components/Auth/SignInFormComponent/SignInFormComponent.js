@@ -64,7 +64,7 @@ const SignInFormComponent = ({ onLogin }) => {
               </div>
             </div>
             <div className={styles.forgotPasswordContainer}>
-              <a href="#">Forgot Password?</a>
+              <a href="/">Forgot Password?</a>
             </div>
             <div className={styles.buttonContainer}>
               <button type="button" onClick={onLogin}>
