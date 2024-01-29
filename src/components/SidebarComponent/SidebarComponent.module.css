@@ -1,0 +1,211 @@
+.sidebar {
+    height: 100vh;
+    width: 218px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #e6e6e6;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.sidebar .sidebarCloseButton {
+    display: none;
+}
+
+.sidebarTop .sidebarHeader {
+    margin-right: 2.5rem;
+    margin-left: 2.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.sidebarTop .sidebarHeader .sidebarHeaderIcon {
+    margin-right: 1rem;
+}
+
+.sidebarTop .sidebarHeader .sidebarHeaderIcon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.sidebarTop .sidebarHeader .sidebarHeaderText {
+    color: var(--Text, #030229);
+    font-family: Nunito;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+
+.sidebarList {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+}
+
+.sidebarList .sidebarListItem {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    text-decoration: none;
+    color: #000;
+}
+
+.sidebarList .sidebarListItem:hover {
+    background-color: #f5f5f5;
+}
+
+.sidebarList .sidebarListItem.active .sidebarListItemIcon path {
+    fill: #605bff;
+}
+
+.sidebarList .sidebarListItem.active .sidebarListItemText {
+    color: #605bff;
+}
+
+
+.sidebarList .sidebarListItem .sidebarListItemIcon {
+    margin-right: 1rem;
+}
+
+.sidebarList .sidebarListItem .sidebarListItemIcon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.sidebarList .sidebarListItem .sidebarListItemText {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .sidebar {
+        width: 18.75rem;
+        height: 50rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid #e6e6e6;
+        background-color: #fff;
+        overflow: hidden;
+        z-index: 2;
+    }
+
+    .sidebar .sidebarCloseButton {
+        display: block;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        top: 0.25rem;
+        right: 2.5rem;
+        border: none;
+        background: none;
+    }
+
+    .sidebar .sidebarCloseButton:hover {
+        cursor: pointer;
+    }
+
+    .sidebar .sidebarCloseButton button {
+        background: none;
+        border: none;
+        height: auto;
+        width: 1rem;
+    }
+
+    .sidebarTop .sidebarHeader {
+        margin-right: 2.5rem;
+        margin-left: 2.5rem;
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sidebarTop .sidebarHeader .sidebarHeaderIcon {
+        margin-right: 1rem;
+    }
+
+    .sidebarTop .sidebarHeader .sidebarHeaderIcon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .sidebarTop .sidebarHeader .sidebarHeaderText {
+        color: var(--Text, #030229);
+        font-family: Nunito;
+        font-size: 1.25rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+
+    .sidebarList {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 2.5rem;
+        padding-left: 2.5rem;
+    }
+
+    .sidebarList .sidebarListItem {
+        color: var(--Text, #030229);
+        font-family: Nunito;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    .sidebarList .sidebarListItem:hover {
+        background-color: #f5f5f5;
+    }
+
+    .sidebarList .sidebarListItem.active .sidebarListItemIcon path {
+        fill: #605bff;
+    }
+
+    .sidebarList .sidebarListItem.active .sidebarListItemText {
+        color: #605bff;
+    }
+
+
+    .sidebarList .sidebarListItem .sidebarListItemIcon {
+        margin-right: 1rem;
+    }
+
+    .sidebarList .sidebarListItem .sidebarListItemIcon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .sidebarList .sidebarListItem .sidebarListItemText {
+        font-size: 16px;
+        font-weight: 500;
+    }
+}

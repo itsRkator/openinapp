@@ -1,0 +1,17 @@
+.container {
+    width: calc(100% - 218px);
+    left: 218px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.calendarWrapper{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

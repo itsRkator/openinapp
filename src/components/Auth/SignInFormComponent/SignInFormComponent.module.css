@@ -1,0 +1,450 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background: #F8FAFF;
+}
+
+.container .leftContainer {
+    background: url('../../../assets/images/leftSide.png') no-repeat;
+    background-size: 100% 100%;
+    width: 40%;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .leftContainer .baseIconContainer {
+    position: fixed;
+    left: 3rem;
+    top: 3rem;
+}
+
+.container .leftContainer .baseIconContainer svg {
+    width: 5rem;
+    height: 100%;
+}
+
+.container .leftContainer .titleTexts {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 4.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.container .leftContainer .socialMediaContainer {
+    position: absolute;
+    bottom: 3rem;
+}
+
+.container .leftContainer .socialMediaContainer svg {
+    width: 80%;
+    height: 100%;
+}
+
+
+
+.container .rightContainer {
+    width: 30%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 2.5rem;
+    flex-shrink: 0;
+    overflow: hidden;
+
+}
+
+.container .rightContainer .headerTexts {
+    color: #000;
+}
+
+.container .rightContainer .headerTexts h2 {
+    color: #000;
+    font-family: Montserrat;
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.container .rightContainer .headerTexts p {
+    color: #000;
+    font-family: Lato;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.container .rightContainer .socialMediaLoginContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.container .rightContainer .socialMediaLoginContainer .socialMediaLogin {
+    height: 1rem;
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: #FFF;
+    border-radius: 0.625rem;
+    padding: 0.625rem 1.25rem;
+}
+
+.container .rightContainer .socialMediaLoginContainer .socialMediaLogin:hover {
+    cursor: pointer;
+}
+
+.container .rightContainer .socialMediaLoginContainer .socialMediaLogin p {
+    margin-left: 1rem;
+    color: var(--Secondary-Text, #858585);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+.container .rightContainer .loginFormContainer {
+    border-radius: 1.75rem;
+    background: #FFF;
+    padding: 2.5rem 2.5rem;
+    margin-top: 2.5rem;
+}
+
+.labelContainer {
+    color: #000;
+    font-family: Lato;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 0.625rem;
+}
+
+.inputContainer input {
+    width: 100%;
+    height: 2.5rem;
+    border: none;
+    color: #000;
+    font-family: Lato;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 0.625rem;
+    padding: 0.625rem 0.625rem;
+    margin-bottom: 1.25rem;
+    background: var(--Background, #F5F5F5);
+}
+
+.inputContainer input:focus {
+    outline: none;
+}
+
+.forgotPasswordContainer a {
+    color: var(--Link, #346BD4);
+    text-decoration: none;
+    font-family: Lato;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.buttonContainer button {
+    width: 100%;
+    border: none;
+    margin: 1.5rem 0rem;
+    height: 2.5rem;
+    border-radius: 0.625rem;
+    background: #605BFF;
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.buttonContainer button:hover {
+    cursor: pointer;
+}
+
+.rightContainer .signUpContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.rightContainer .signUpContainer p {
+    color: var(--Secondary-Text, #858585);
+    text-align: center;
+    font-family: Lato;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.rightContainer .signUpContainer a {
+    color: var(--Link, #346BD4);
+    text-decoration: none;
+    font-family: Lato;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    margin-left: 0.5rem;
+    line-height: normal;
+}
+
+.footerContainer{
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background: #F8FAFF;
+    }
+
+    .container .leftContainer {
+        background: #605BFF;
+        background-size: 100% 100%;
+        width: 100%;
+        height: 5rem;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .container .leftContainer .brandContainer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .container .leftContainer .brandContainer .baseIconContainer {
+        position: relative;
+        left: 0.5rem;
+        top: 0.15rem;
+    }
+
+    .container .leftContainer .brandContainer .baseIconContainer svg {
+        width: 1.5rem;
+        height: 100%;
+    }
+
+    .container .leftContainer .brandContainer .titleTexts {
+        color: #FAFAFB;
+        font-family: Nunito;
+        font-size: 1.25rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin: 0rem 0rem 0rem 0.75rem;
+    }
+
+    .container .leftContainer .socialMediaContainer {
+        display: none;
+    }
+
+    .container .leftContainer .socialMediaContainer svg {
+        width: 80%;
+        height: 100%;
+    }
+
+
+
+    .container .rightContainer {
+        width: 75%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        padding: 0rem 2.5rem;
+        flex-shrink: 0;
+        overflow: hidden;
+        padding: 0.5rem 0rem;
+
+    }
+
+    .container .rightContainer .headerTexts {
+        color: #000;
+    }
+
+    .container .rightContainer .headerTexts h2 {
+        color: #000;
+        font-family: Montserrat;
+        font-size: 2.25rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .container .rightContainer .headerTexts p {
+        color: #000;
+        font-family: Lato;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .container .rightContainer .socialMediaLoginContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    .container .rightContainer .socialMediaLoginContainer .socialMediaLogin {
+        height: 1rem;
+        width: 40%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        border-radius: 0.625rem;
+        padding: 0.625rem 1.25rem;
+    }
+
+    .container .rightContainer .socialMediaLoginContainer .socialMediaLogin:hover {
+        cursor: pointer;
+    }
+
+    .container .rightContainer .socialMediaLoginContainer .socialMediaLogin p {
+        margin-left: 1rem;
+        color: var(--Secondary-Text, #858585);
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 0.75rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+
+    .container .rightContainer .loginFormContainer {
+        border-radius: 1.75rem;
+        background: #FFF;
+        padding: 2.5rem 2.5rem;
+        margin-top: 2.5rem;
+    }
+
+    .labelContainer {
+        color: #000;
+        font-family: Lato;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-bottom: 0.625rem;
+    }
+
+    .inputContainer input {
+        width: 100%;
+        height: 2.5rem;
+        border: none;
+        color: #000;
+        font-family: Lato;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        border-radius: 0.625rem;
+        padding: 0.625rem 0.625rem;
+        margin-bottom: 1.25rem;
+        background: var(--Background, #F5F5F5);
+    }
+
+    .inputContainer input:focus {
+        outline: none;
+    }
+
+    .forgotPasswordContainer a {
+        color: var(--Link, #346BD4);
+        text-decoration: none;
+        font-family: Lato;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .buttonContainer button {
+        width: 100%;
+        border: none;
+        margin: 1.5rem 0rem;
+        height: 2.5rem;
+        border-radius: 0.625rem;
+        background: #605BFF;
+        color: #FFF;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .buttonContainer button:hover {
+        cursor: pointer;
+    }
+
+    .rightContainer .signUpContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1.5rem;;
+    }
+    .rightContainer .signUpContainer p {
+        color: var(--Secondary-Text, #858585);
+        text-align: center;
+        font-family: Lato;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .rightContainer .signUpContainer a {
+        color: var(--Link, #346BD4);
+        text-decoration: none;
+        font-family: Lato;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        margin: 0rem;
+        line-height: normal;
+    }
+    .footerContainer{
+        display: flex;
+        padding: 0rem 2.5rem;
+        align-items: center;
+        justify-self: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .footerContainer svg {
+        padding: 1.5rem;
+    }
+}

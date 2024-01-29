@@ -1,0 +1,27 @@
+.miniSidebar{
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.miniSidebarHandlerButtonLine {
+    width: 1rem;
+    border: 0.5px solid #000;
+    margin-bottom: 0.2rem;
+}
+.miniSidebarHandlerButtonLine:first-child {
+    margin-top: 0.2rem;
+}
+.miniSidebarHandlerButtonLine:last-child {
+    margin-bottom: 0.2rem;
+}
+.miniSidebarHandlerButtonLine.active {
+    background-color: #000;
+}
+.miniSidebarHandlerButtonLine.active:first-child {
+    margin-top: 0.1rem;
+}
+.miniSidebarHandlerButtonLine.active:last-child {
+    margin-bottom: 0.1rem;
+}
