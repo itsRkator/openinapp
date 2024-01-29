@@ -1,6 +1,5 @@
 Certainly! Here's the complete `README.md` file as code:
 
-````markdown
 # Project Name
 
 A brief description of your project.
@@ -21,7 +20,7 @@ A brief description of your project.
 git clone https://github.com/itsRkator/openinapp.git
 cd openinapp
 ```
-````
+
 
 ## Setup Environment
 
